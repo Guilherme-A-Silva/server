@@ -78,7 +78,7 @@ export function toggleEditButton(user: User, toEdit = true) {
  */
 export function handlePasswordConfirmation(adminPassword = 'admin') {
 	const handleModal = (context: Cypress.Chainable) => {
-		return context.contains('.modal-container', 'Confirm your password')
+		return context.contains('.modal-container', 'Authentication required')
 			.if()
 			.within(() => {
 				cy.get('input[type="password"]').type(adminPassword)
