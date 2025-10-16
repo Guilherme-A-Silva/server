@@ -60,7 +60,7 @@ $CONFIG = [
 	 * Secret used by Nextcloud for various purposes, e.g., to encrypt data. If you
 	 * lose this string, there will be data corruption.
 	 */
-	'secret' => '',
+	'secret' => '1l8S8nMl20o5oImReHr97nTuAqz1DqJiPiNFIcn8',
 
 	/**
 	 * Your list of trusted domains that users can log into. Specifying trusted
@@ -115,7 +115,7 @@ $CONFIG = [
 	 *
 	 * Defaults to ``sqlite3``
 	 */
-	'dbtype' => 'sqlite3',
+	'dbtype' => 'pgsql',
 
 	/**
 	 * Your host server name, for example ``localhost``, ``hostname``,
@@ -124,26 +124,26 @@ $CONFIG = [
 	 * To specify a Unix socket, use ``localhost:/path/to/directory/containing/socket`` or
 	 * ``:/path/to/directory/containing/socket``, e.g., ``localhost:/run/postgresql/``.
 	 */
-	'dbhost' => '',
+	'dbhost' => 'postgres-1ufc.railway.internal',
 
 	/**
 	 * The name of the Nextcloud database, which is set during installation. You
 	 * should not need to change this.
 	 */
-	'dbname' => 'nextcloud',
+	'dbname' => 'railway',
 
 	/**
 	 * The user that Nextcloud uses to write to the database. This must be unique
 	 * across Nextcloud instances using the same SQL database. This is set up during
 	 * installation, so you shouldn't need to change it.
 	 */
-	'dbuser' => '',
+	'dbuser' => 'postgres',
 
 	/**
 	 * The password for the database user. This is set up during installation, so
 	 * you shouldn't need to change it.
 	 */
-	'dbpassword' => '',
+	'dbpassword' => 'RMJrMzODFopeuSFfTkSHmVcRmCvRTJfS',
 
 	/**
 	 * Prefix for the Nextcloud tables in the database.
