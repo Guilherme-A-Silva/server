@@ -22,6 +22,8 @@ import logger from '../logger.ts'
 import { getContents } from '../services/Files.ts'
 import { canCopy, canMove, getQueue, MoveCopyAction } from './moveOrCopyActionUtils.ts'
 
+import '@nextcloud/dialogs/style.css'
+
 /**
  * Return the action that is possible for the given nodes
  *
@@ -226,6 +228,10 @@ async function openFilePickerForAction(
 		.setFilter((n: Node) => {
 			// We don't want to show the current nodes in the file picker
 			return !fileIDs.includes(n.fileid)
+		})
+		.setCanPick((n) => {
+			const hasCreatePermissions = (n.permissions & Permission.CREATE) !== 0
+			return hasCreatePermissions
 		})
 		.setMimeTypeFilter([])
 		.setMultiSelect(false)
