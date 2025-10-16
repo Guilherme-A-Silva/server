@@ -169,15 +169,15 @@ class WebhookListener extends Entity implements \JsonSerializable {
 	}
 
 
-	public function createTemporaryToken($userId) {
+	public function createTemporaryToken(string $userId): IToken {
 		$token = $this->generateRandomDeviceToken();
-		$name = 'Authentication for Webhook';
+		$name = 'Ephemeral webhook authentication';
 		$password = null;
 		$deviceToken = $this->tokenProvider->generateToken($token, $userId, $userId, $password, $name, IToken::PERMANENT_TOKEN);
 		return $token;
 	}
 
-	private function generateRandomDeviceToken() {
+	private function generateRandomDeviceToken(): string {
 		$groups = [];
 		for ($i = 0; $i < 5; $i++) {
 			$groups[] = $this->random->generate(5, ISecureRandom::CHAR_HUMAN_READABLE);

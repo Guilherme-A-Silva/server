@@ -97,7 +97,10 @@ class WebhookCall extends QueuedJob {
 	}
 
 	private function getTokens($webhookListener, $triggerUserId): array {
-		$tokens = [];
+		$tokens = [
+			'users' => [],
+			'functions' => [],
+		];
 		$tokenNeeded = $webhookListener->getTokenNeeded();
 		if (isset($tokenNeeded['users'])) {
 			foreach ($tokenNeeded['users'] as $userId) {
